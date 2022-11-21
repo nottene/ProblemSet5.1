@@ -139,7 +139,23 @@ public class Fraction {
     }
 
     /**
-     *
+     * Method for multiplying two Fraction objects
+     * Postcondition: The answer will be in lowest terms
+     * @param frac The Fraction to multiply by
+     * @return A new Fraction object that is the product of this fraction and the first
+     */
+    public Fraction multiply(Fraction frac) {
+        int n = numerator * frac.numerator;
+        int d = denominator * frac.denominator;
+        Fraction ans - new Fraction(n,d);
+        ans.reduce();
+        return ans;
+
+    }
+
+    /**
+     * Method for multiplying two Fraction objects
+     * Postcondition: The answer will be in lowest terms
      * @param a The first fraction getting multiplied
      * @param b The second fraction getting multiplied
      * @return The product of the two fractions
@@ -151,7 +167,6 @@ public class Fraction {
     }
 
     /**
-     *
      * @param a Takes in a fraction
      * @return The reciprocal of the fraction taken
      */
@@ -160,7 +175,21 @@ public class Fraction {
     }
 
     /**
-     *
+     * Method for dividing two Fraction objects
+     * Postcondition: The answer will be in lowest terms
+     * @param frac The Fraction object to be devided by
+     * @return A new Fraction object that is the quotient of this Fraction and the first
+     */
+    public Fraction divide(Fraction frac) {
+        if (frac.toDouble() == 0) {
+            System.out.println("undefined");
+            return null;
+        }
+        return Fraction.multiply(new Fraction(numerator, denominator),reciprocal(frac));
+    }
+    /**
+     * Method for dividing two Fraction objects
+     * Postcondition: The answer will be in lowest terms
      * @param a The first fraction to get divided by
      * @param b The second fraction to get divided by
      * @return The quotient of the two fractions
@@ -170,7 +199,20 @@ public class Fraction {
     }
 
     /**
-     *
+     * Method for adding two Fraction objects
+     * Postcondition: The answer will be in lowest terms
+     * @param frac The Fraction object to be added by
+     * @return A new Fraction object that is the sum of this Fraction and the first
+     */
+    public Fraction add(Fraction frac) {
+        Fraction f = new Fraction(numerator * frac.denominator + frac.numerator * denominator, denominator * frac.denominator);
+        f.reduce();
+        return f;
+    }
+
+    /**
+     * Method for adding two Fraction objects
+     * Postcondition: The answer will be in lowest terms
      * @param a The first fraction that is being added
      * @param b The second fraction that is being added
      * @return The sum of the two fractions
@@ -184,7 +226,19 @@ public class Fraction {
     }
 
     /**
-     *
+     * Method for subtracting two Fraction objects
+     * Postcondition: The answer will be in lowest terms
+     * @param frac The Fraction object to be subtracted by
+     * @return A new Fraction object that is the difference of this Fraction and the first
+     */
+    public Fraction subtract(Fraction frac) {
+        Fraction f = new Fraction(numerator * frac.denominator - frac.numerator * denominator, denominator * frac.denominator);
+        f.reduce();
+        return f;
+    }
+    /**
+     * Method for subtracting two Fraction objects
+     * Postcondition: The answer will be in lowest terms
      * @param a The first fraction that is being subtracted
      * @param b The second fraction that is being subtracted
      * @return The difference of the two fractions
