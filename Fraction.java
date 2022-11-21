@@ -147,7 +147,7 @@ public class Fraction {
     public Fraction multiply(Fraction frac) {
         int n = numerator * frac.numerator;
         int d = denominator * frac.denominator;
-        Fraction ans - new Fraction(n,d);
+        Fraction ans = new Fraction(n,d);
         ans.reduce();
         return ans;
 
